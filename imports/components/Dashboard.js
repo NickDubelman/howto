@@ -1,4 +1,5 @@
 import React from 'react'
+import { Meteor } from 'meteor/meteor'
 
 import ChapterTitle from '/imports/components/ChapterTitle'
 import ChapterInformation from '/imports/components/ChapterInformation'
@@ -9,8 +10,8 @@ const Dashboard = ({loggedIn}) => {
     return(
       <div className="content-container">
         <a onClick={()=>AccountsTemplates.logout()}> Logout</a>
-        <ChapterTitle />
-        <ChapterInformation />
+        <br />
+        <a onClick={()=>Meteor.call('Guides.create', 'bitch')}>New Guide</a>
       </div>
     )
   }
