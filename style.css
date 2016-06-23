@@ -1,0 +1,25 @@
+body{
+  background: url('/assets/images/1.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.overlay{
+  background: rgba(235, 235, 235, 0.5);
+  padding: 20px 10px;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 1px 0 0 1px rgba(0,0,0,.05);
+  box-shadow: inset 1px 0 0 1px rgba(0,0,0,.05);
+}
+
+.content-container{
+  position: absolute;
+  top: 0; left: 245px; right: 10px; bottom: 0;
+}
+
+h3{
+  margin: 0;
+}
