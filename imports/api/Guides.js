@@ -1,6 +1,4 @@
-import { Meteor } from 'meteor/meteor'
-import { Mongo } from 'meteor/mongo'
-import { check } from 'meteor/check'
+import {check} from 'meteor/check'
 
 const Guides = new Mongo.Collection('Guides')
 
@@ -27,3 +25,5 @@ Meteor.methods({
     else throw new Meteor.Error('not authorized')
   }
 })
+
+export default Guides

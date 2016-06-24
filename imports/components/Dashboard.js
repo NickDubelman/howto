@@ -1,17 +1,22 @@
 import React from 'react'
-import { Meteor } from 'meteor/meteor'
+import { createContainer } from 'meteor/react-meteor-data'
 
+import Guides from '/imports/api/Guides'
 import ChapterTitle from '/imports/components/ChapterTitle'
 import ChapterInformation from '/imports/components/ChapterInformation'
 import LogIn from '/imports/components/LogIn'
+import NewGuideForm from '/imports/components/NewGuideForm'
+import MyGuides from '/imports/components/MyGuides'
 
-const Dashboard = ({loggedIn}) => {
+const Dashboard = ({loggedIn, guides}) => {
   if (loggedIn){
     return(
       <div className="content-container">
         <a onClick={()=>AccountsTemplates.logout()}> Logout</a>
         <br />
-        <a onClick={()=>Meteor.call('Guides.create', 'bitch')}>New Guide</a>
+        <br />
+        <NewGuideForm />
+        <MyGuides guides={guides} />
       </div>
     )
   }
@@ -22,4 +27,9 @@ const Dashboard = ({loggedIn}) => {
   )
 }
 
-export default Dashboard
+export default createContainer(({loggedIn})=>{
+  return{
+    loggedIn,
+    guides: Guides.find({creator: Meteor.userId()}).fetch()
+  }
+} , Dashboard)
