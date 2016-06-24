@@ -20,7 +20,7 @@ const MyGuides = React.createClass({
                 <Link to={`/guide/${guide._id}`} >
                   {guide.name} 
                 </Link>
-                <span className="deleteIcon"> &#10060; </span>
+                <span onClick={()=>Meteor.call('Guides.remove', guide._id)} className="deleteIcon"> &#10060; </span>
               </div>
         )}
       </div>

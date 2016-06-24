@@ -23,6 +23,15 @@ Meteor.methods({
       })
     }
     else throw new Meteor.Error('not authorized')
+  },
+  'Guides.remove'(guideId){
+    check(guideId, String)
+    if(Guides.findOne({_id: guideId}).creator != this.userId){
+      throw new Meteor.Error('This Guide does not belong to you, silly hacker.');
+    }
+    else{
+      Guides.remove(guideId)
+    }
   }
 })
 
