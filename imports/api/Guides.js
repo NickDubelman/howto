@@ -3,7 +3,7 @@ import {check} from 'meteor/check'
 const Guides = new Mongo.Collection('Guides')
 
 Meteor.methods({
-  'Guides.create'(name){
+  'Guides.insert'(name){
     check(name, String)
 
     console.log(name)

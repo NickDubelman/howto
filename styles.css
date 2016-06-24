@@ -36,7 +36,8 @@ a, a:visited{
   padding-left: 5px;
 }
 
-.guideLink:hover .deleteIcon {
+.guideLink:hover .deleteIcon,
+.chapterLink:hover .deleteIcon {
   display: inline-block;
   cursor: pointer;
 }

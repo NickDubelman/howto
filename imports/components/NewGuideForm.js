@@ -7,14 +7,15 @@ class NewGuideForm extends Component{
   }
   handleSubmit(event){
   	event.preventDefault()
-  	const guideName = this.refs.guideName.value
+    console.log(this.refs.guideName.value)
+  	let guideName = this.refs.guideName.value
     if ( guideName === '' 
       || guideName === null 
       || guideName.trim() === ''){
       alert("Guide name cannot be empty")
     }
     else{
-    	Meteor.call('Guides.create', this.refs.guideName.value)
+    	Meteor.call('Guides.insert', guideName)
     	this.refs.newGuideForm.reset()
     }
   }
