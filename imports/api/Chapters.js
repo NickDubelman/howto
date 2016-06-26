@@ -34,13 +34,13 @@ Meteor.methods({
       throw new Meteor.Error('Not authorized');
     }
   },
-  'Chapters.remove'(guideId){
-    check(guideId, String)
-    if(Chapters.findOne({_id: guideId}).creator != this.userId){
-      throw new Meteor.Error('This guide does not belong to you, silly hacker.');
+  'Chapters.remove'(chapterId){
+    check(chapterId, String)
+    if(Chapters.findOne({_id: chapterId}).creator != this.userId){
+      throw new Meteor.Error('This Chapter does not belong to you, silly hacker.');
     }
     else{
-      Chapters.remove(guideId)
+      Chapters.remove(chapterId)
     }
   },
 })

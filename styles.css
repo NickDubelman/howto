@@ -37,7 +37,8 @@ a, a:visited{
 }
 
 .guideLink:hover .deleteIcon,
-.chapterLink:hover .deleteIcon {
+.chapterLink:hover .deleteIcon,
+.subchapterLink:hover .deleteIcon {
   display: inline-block;
   cursor: pointer;
 }

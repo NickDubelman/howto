@@ -6,6 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data'
 import Sidebar from '/imports/components/Sidebar'
 import Dashboard from '/imports/components/Dashboard'
 import Guide from '/imports/components/Guide'
+import Chapter from '/imports/components/Chapter'
 
 function App(props){
   let content
@@ -33,6 +34,7 @@ Meteor.startup( () => {
       <Route path="/" component={AppContainer}>
         <IndexRoute component={Dashboard}/>
         <Route path="/guide/:guideId" component={Guide} />
+        <Route path="/chapter/:chapterId" component={Chapter} />
       </Route>
 
     </Router>

@@ -7,8 +7,6 @@ import NewChapterForm from '/imports/components/NewChapterForm'
 
 const Guide = ({params, chapters}) => (
   <div className="content-container">
-    <Link to="/">Back</Link>
-    <br /> <br />
     <NewChapterForm guideId={params.guideId}/>
     {chapters.map(
         (chapter) => 
