@@ -21,7 +21,7 @@ Meteor.methods({
         name,
         chapterId,
         creator: this.userId,
-        content: '',
+        content: 'Content goes here',
       })
     }
     else{
@@ -37,4 +37,13 @@ Meteor.methods({
       Subchapters.remove(subchapterId)
     }
   },
+  'Subchapters.updateContent'(subchapterId, newContent){
+    check(newContent, String)
+    if(Subchapters.findOne({_id: subchapterId}).creator != this.userId){
+      throw new Meteor.Error('This subchapter does not belong to you, silly hacker.');
+    }
+    else{
+      Subchapters.update(subchapterId, { $set: {content: newContent}})
+    }
+  }
 })
