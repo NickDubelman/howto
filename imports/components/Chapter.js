@@ -11,12 +11,14 @@ const Chapter = ({params, subchapters}) => (
     <NewSubchapterForm chapterId={params.chapterId}/>
     {subchapters.map(
         (subchapter) => 
-          <div key={subchapter._id} className="subchapterLink">
-            <span>
-              <h4 style={subchapterTitle}>{subchapter.name}</h4> 
-            </span>
-            <span onClick={()=>Meteor.call('Subchapters.remove', subchapter._id)} className="deleteIcon"> &#10060; </span>
-            <SubchapterContent subchapterId={subchapter._id} content={subchapter.content} />
+          <div style={subchapterContainer} className='overlay'>
+            <div key={subchapter._id} className="subchapterLink">
+              <span>
+                <h1 style={subchapterTitle}>{subchapter.name}</h1> 
+              </span>
+              <span onClick={()=>Meteor.call('Subchapters.remove', subchapter._id)} className="deleteIcon"> &#10060; </span>
+              <SubchapterContent subchapterId={subchapter._id} content={subchapter.content} />
+            </div>
           </div>
     )}
   </div>
@@ -24,6 +26,10 @@ const Chapter = ({params, subchapters}) => (
 
 let subchapterTitle={
   display: 'inline-block',
+}
+
+let subchapterContainer={
+  marginBottom: 10,
 }
 
 export default createContainer(({params})=>{
